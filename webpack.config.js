@@ -62,7 +62,7 @@ module.exports = {
             template: 'src/index.html'
         }),
         new ExtractTextPlugin({
-            filename: 'style.css',
+            filename: 'portfolio.css',
             allChunks: true
         })
     ],

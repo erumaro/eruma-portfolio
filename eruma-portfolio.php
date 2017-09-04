@@ -50,7 +50,17 @@ include_once( dirname( __FILE__ ) . '/advanced-custom-fields/acf.php' );
 // Add scripts and styles
 add_action('wp_enqueue_scripts', 'eruma_portfolio_scripts');
 function eruma_portfolio_scripts(){
-    wp_enqueue_style( 'portfolio-style', plugins_url('portfolio.css', __FILE__ ));
+    if ( is_archive( 'projects' ) ) {
+        wp_enqueue_style( 'portfolio-style', plugins_url('portfolio.css', __FILE__ ));
+        wp_enqueue_script( 'portfolio-manifest-js', plugins_url('dist/manifest.js', __FILE__ ), '', '', true);
+        wp_enqueue_script( 'portfolio-vendor-js', plugins_url('dist/vendor.js', __FILE__ ), '', '', true);
+        wp_enqueue_script( 'portfolio-bundle-js', plugins_url('dist/bundle.js', __FILE__ ), '', '', true);
+
+        $wnm_custom = array( 
+            'restURL' => get_rest_url()
+        );
+        wp_localize_script('portfolio-bundle-js', 'wpglobals', $wnm_custom);  
+    }
 }
 
 /**
