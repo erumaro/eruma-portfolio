@@ -11,20 +11,25 @@ class ProjectsIndex extends Component {
     renderProjects() {
         return this.props.projects.map((project) => {
            return (
-            <li key={project.id}>
-                <Link to={"projects/" + project.id}>{project.title.rendered}</Link>
-            </li>
+               <article key={project.id} className="project">
+                   <div className="featured-image-wrapper">
+                       <img className="featured-image" src={project._embedded["wp:featuredmedia"][0].source_url}/>
+                   </div>
+                   <div className="project-content">
+                       <h2>{project.title.rendered}</h2>
+                       <div className='project-excerpt' dangerouslySetInnerHTML={ { __html: project.excerpt.rendered } }></div>
+                       <Link to={'projects/' + project.id} type="button">Read more</Link>
+                   </div>
+               </article>
            );
         });
     }
     
     render() {
         return(
-            <div>
-                <h3>Projects</h3>
-                <ul>
-                     {this.renderProjects()}
-                </ul>
+            <div id="primary" className="content-area">
+                <h1>Projects</h1>
+                {this.renderProjects()}
             </div>
         );
     }
