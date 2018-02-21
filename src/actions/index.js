@@ -35,7 +35,7 @@ export function fetchTechnologies() {
 }
 
 export function fetchTechnology(id) {
-    const request = axios.get(`${ROOT_URL}/projects?technology=${id}?&_embed=true`);
+    const request = axios.get(`${ROOT_URL}/technology/${id}?&_embed=true`);
     
     return {
         type: FETCH_TECHNOLOGY,

@@ -17,6 +17,15 @@ class ProjectsIndex extends Component {
                    </div>
                    <div className="project-content">
                        <h2>{project.title.rendered}</h2>
+                       <ul>
+                       {
+                           project._embedded["wp:term"][1].map((technology) => {
+                               return (
+                                   <li key={technology.id}><Link to={'technology/' + technology.id}>{technology.name}</Link></li>
+                               );
+                           })
+                        }
+                        </ul>
                        <div className='project-excerpt' dangerouslySetInnerHTML={ { __html: project.excerpt.rendered } }></div>
                        <Link to={'projects/' + project.id} type="button">Read more</Link>
                    </div>
@@ -36,7 +45,9 @@ class ProjectsIndex extends Component {
 }
 
 function mapStateToProps(state){
-    return { projects: state.projects.all };
+    return { 
+        projects: state.projects.all
+    };
 }
 
 export default connect(mapStateToProps, { fetchProjects })(ProjectsIndex);
