@@ -17,7 +17,7 @@ class ProjectsIndex extends Component {
                    </div>
                    <div className="project-content">
                        <h2>{project.title.rendered}</h2>
-                       <ul>
+                       <ul className="technology-links">
                        {
                            project._embedded["wp:term"][1].map((technology) => {
                                return (

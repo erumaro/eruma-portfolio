@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { fetchTechnology } from '../actions/index';
 import { Link } from 'react-router';
@@ -8,12 +8,12 @@ class TechnologyIndex extends Component {
         this.props.fetchTechnology(this.props.params.id);
     }
     
-    renderProjects() {
+    renderTechnology() {
         return this.props.technology.map((tech) => {
-           return (
+            return (
                <article key={tech.id} className="project">
                    <div className="featured-image-wrapper">
-                       <img className="featured-image" src={tech._embedded["wp:featuredmedia"] != undefined ? tech._embedded["wp:featuredmedia"][0].source_url : ``}/>
+                       <img className="featured-image" src={tech._embedded["wp:featuredmedia"][0].source_url}/>
                    </div>
                    <div className="project-content">
                        <h2>{tech.title.rendered}</h2>
@@ -21,14 +21,15 @@ class TechnologyIndex extends Component {
                        <Link to={'projects/' + tech.id} type="button">Read more</Link>
                    </div>
                </article>
-           );
+            );
         });
     }
     
     render() {
-        return(
+        return (
             <div id="primary" className="content-area">
-                {this.renderProjects()}
+                <h1>Technology: {}</h1>
+                {this.renderTechnology()}
             </div>
         );
     }
