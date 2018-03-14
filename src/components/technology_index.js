@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { fetchTechnology } from '../actions/index';
+import { fetchProjectsTechnology, fetchTechnology } from '../actions/index';
 import { Link } from 'react-router';
 
 class TechnologyIndex extends Component {
     componentWillMount() {
+        this.props.fetchProjectsTechnology(this.props.params.id);
         this.props.fetchTechnology(this.props.params.id);
     }
     
     renderTechnology() {
-        return this.props.technology.map((tech) => {
+        return this.props.technology[0].map((tech) => {
             return (
                <article key={tech.id} className="project">
                    <div className="featured-image-wrapper">
@@ -28,7 +29,7 @@ class TechnologyIndex extends Component {
     render() {
         return (
             <div id="primary" className="content-area">
-                <h1>Technology: {}</h1>
+                <h1>Technology: {this.props.technology[1].name}</h1>
                 {this.renderTechnology()}
             </div>
         );
@@ -36,7 +37,9 @@ class TechnologyIndex extends Component {
 }
 
 function mapStateToProps(state) {
-    return { technology: state.technologies.technology };
+    return { 
+        technology: [state.projects.filteredAll, state.technologies.technology]
+    };
 }
 
-export default connect(mapStateToProps, { fetchTechnology })(TechnologyIndex);
+export default connect(mapStateToProps, { fetchProjectsTechnology, fetchTechnology })(TechnologyIndex);

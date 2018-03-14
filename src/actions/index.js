@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const FETCH_PROJECTS = 'FETCH_PROJECTS';
+export const FETCH_PROJECTS_TECHNOLOGY = 'FETCH_PROJECTS_TECHNOLOGY';
 export const FETCH_PROJECT = 'FETCH_PROJECT';
 export const FETCH_TECHNOLOGIES = 'FETCH_TECHNOLOGIES';
 export const FETCH_TECHNOLOGY = 'FETCH_TECHNOLOGY';
@@ -12,6 +13,15 @@ export function fetchProjects() {
     
     return {
         type: FETCH_PROJECTS,
+        payload: request
+    };
+}
+
+export function fetchProjectsTechnology(id) {
+    const request = axios.get(`${ROOT_URL}/projects?technology=${id}&_embed=true`);
+    
+    return {
+        type: FETCH_PROJECTS_TECHNOLOGY,
         payload: request
     };
 }
@@ -35,7 +45,7 @@ export function fetchTechnologies() {
 }
 
 export function fetchTechnology(id) {
-    const request = axios.get(`${ROOT_URL}/projects?technology=${id}&_embed=true`);
+    const request = axios.get(`${ROOT_URL}/technology/${id}`);
     
     return {
         type: FETCH_TECHNOLOGY,
