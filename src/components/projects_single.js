@@ -21,7 +21,14 @@ class ProjectsSingle extends Component {
                    <header>
                        <h1>{project.title.rendered}</h1>
                    </header>
-                   <div className='post-content' dangerouslySetInnerHTML={ { __html: project.content.rendered } }></div>
+                   <div className='post-content'>
+                      <div className='post-image-wrapper'>
+                          <div className='post-image desktop-image'></div>
+                          <div className='post-image tablet-image'></div>
+                          <div className='post-image mobile-image'></div>
+                      </div>
+                        <div className='post-description' dangerouslySetInnerHTML={ { __html: project.acf.project_description } } />
+                   </div>
                    <footer></footer>
                </article>
             </div>
