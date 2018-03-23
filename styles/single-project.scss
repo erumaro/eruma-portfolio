@@ -1,0 +1,38 @@
+.single-project{
+    .featured-image-wrapper{
+        width: 100%;
+    }
+}
+
+.post-image-wrapper{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.post-description{
+    background: #fff;
+    padding: 2%;
+    
+    p{
+        margin: 0;
+    }
+}
+
+.post-image{
+    margin: 1%;
+    img{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 37.5em) {
+    .post-image{
+        margin: 1% 0;
+        img{
+            height: 70vh;
+            width: auto;
+        }
+    }
+}

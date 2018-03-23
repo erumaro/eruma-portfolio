@@ -17,20 +17,23 @@ class ProjectsSingle extends Component {
         
         return(
             <div id="primary" className="content-area">
-               <article key={project.id} className="project">
-                   <header>
-                       <h1>{project.title.rendered}</h1>
-                   </header>
-                   <div className='post-content'>
-                      <div className='post-image-wrapper'>
-                          <div className='post-image desktop-image'></div>
-                          <div className='post-image tablet-image'></div>
-                          <div className='post-image mobile-image'></div>
-                      </div>
+                <article key={project.id} className="single-project">
+                    <header>
+                        <h1>{project.title.rendered}</h1>
+                    </header>
+                    <div className='post-content'>
+                        <div className="featured-image-wrapper">
+                            <img className="featured-image" src={project._embedded["wp:featuredmedia"][0].source_url}/>
+                        </div>
                         <div className='post-description' dangerouslySetInnerHTML={ { __html: project.acf.project_description } } />
-                   </div>
-                   <footer></footer>
-               </article>
+                        <div className='post-image-wrapper'>
+                           <div className='post-image desktop-image'><img src={project.acf.desktop_image.url} alt={project.acf.desktop_image.alt}/></div>
+                            <div className='post-image tablet-image'><img src={project.acf.tablet_image.url} alt={project.acf.tablet_image.alt}/></div>
+                            <div className='post-image mobile-image'><img src={project.acf.mobile_image.url} alt={project.acf.mobile_image.alt}/></div>
+                        </div>
+                    </div>
+                    <footer></footer>
+                </article>
             </div>
         );
     }

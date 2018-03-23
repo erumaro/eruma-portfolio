@@ -1,0 +1,105 @@
+.post-type-archive-projects{
+    h1{
+    color: #fff;
+    text-shadow: 0px 0px 30px black;
+    }
+    
+    h2{
+        font-size: 2.5em;
+    }
+    
+    .site-content{
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 1em;
+        flex-direction: column;
+        padding: 0 1em;
+        margin: 0 auto;
+    }
+    
+    article.project{
+        margin-bottom: 5vh;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    
+    article.project:nth-child(2n){
+        background: #eee;
+    }
+    
+    article.project:nth-child(2n+1){
+        background: #333;
+        
+        .project-content{
+            color: #fff;
+        }
+    }
+    
+    .featured-image-wrapper, .project-content{
+        width: 100%;
+        height: auto;
+    }
+    
+    .featured-image-wrapper{
+        font-size: 0;
+    }
+    
+    .project-content{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .technology-links{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        
+        li{
+            background: #fff;
+            margin: 2%;
+            padding: 2% 4%;
+            border: 2px solid #eee;
+            border-bottom: 3px solid #771414;
+        }
+        
+        a{
+            color: #000;
+            text-decoration: none;
+        }
+    }
+}
+
+@media screen and (min-width: 37.5em) {
+    .post-type-archive-projects{
+        .site-content{
+            padding: 0 2em;
+        }
+        
+        article.project{
+            flex-direction: row;
+        }
+        
+        .featured-image-wrapper, .project-content{
+            width: 50%;
+            height: auto;
+        }
+        
+        article.project:nth-child(2n+1){
+
+            .featured-image-wrapper{
+                order: 2;
+            }
+
+            .project-content{
+                order: 1;
+            }
+        }
+    } 
+}
