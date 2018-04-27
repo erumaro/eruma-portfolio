@@ -12,7 +12,7 @@ class ProjectsSingle extends Component {
         const { project } = this.props;
         
         if( !project ) {
-            return <div>Loading...</div>;
+            return <div><img alt="loading content" src={`${wpglobals.pluginURL}/images/Spin-1s-200px.gif`}/></div>;
         }
         
         return(
@@ -27,9 +27,9 @@ class ProjectsSingle extends Component {
                         </div>
                         <div className='post-description' dangerouslySetInnerHTML={ { __html: project.acf.project_description } } />
                         <div className='post-image-wrapper'>
-                           <div className='post-image desktop-image'><img src={project.acf.desktop_image.url} alt={project.acf.desktop_image.alt}/></div>
-                            <div className='post-image tablet-image'><img src={project.acf.tablet_image.url} alt={project.acf.tablet_image.alt}/></div>
-                            <div className='post-image mobile-image'><img src={project.acf.mobile_image.url} alt={project.acf.mobile_image.alt}/></div>
+                           <div className='post-image desktop-image'><h2>Desktop</h2><img src={project.acf.desktop_image.url} alt={project.acf.desktop_image.alt}/></div>
+                            <div className='post-image tablet-image'><h2>Tablet</h2><img src={project.acf.tablet_image.url} alt={project.acf.tablet_image.alt}/></div>
+                            <div className='post-image mobile-image'><h2>Mobile</h2><img src={project.acf.mobile_image.url} alt={project.acf.mobile_image.alt}/></div>
                         </div>
                     </div>
                     <footer></footer>

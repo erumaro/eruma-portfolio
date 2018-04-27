@@ -61,7 +61,8 @@ function eruma_portfolio_scripts(){
         wp_enqueue_script( 'portfolio-bundle-js', plugins_url('dist/bundle.js', __FILE__ ), '', '', true);
 
         $wnm_custom = array( 
-            'restURL' => get_rest_url()
+            'restURL' => get_rest_url(),
+            'pluginURL' => plugins_url('eruma-portfolio')
         );
         wp_localize_script('portfolio-bundle-js', 'wpglobals', $wnm_custom);  
     }
