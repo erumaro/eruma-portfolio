@@ -23,11 +23,10 @@ class ProjectsSingle extends Component {
                     </header>
                     <div className='post-content'>
                         <div className="featured-image-wrapper">
-                            <img className="featured-image" src={project._embedded["wp:featuredmedia"][0].source_url}/>
+                           <div className='featured-image'><h2>Desktop</h2><img src={project.acf.desktop_image.url} alt={project.acf.desktop_image.alt}/></div>
                         </div>
                         <div className='post-description' dangerouslySetInnerHTML={ { __html: project.acf.project_description } } />
                         <div className='post-image-wrapper'>
-                           <div className='post-image desktop-image'><h2>Desktop</h2><img src={project.acf.desktop_image.url} alt={project.acf.desktop_image.alt}/></div>
                             <div className='post-image tablet-image'><h2>Tablet</h2><img src={project.acf.tablet_image.url} alt={project.acf.tablet_image.alt}/></div>
                             <div className='post-image mobile-image'><h2>Mobile</h2><img src={project.acf.mobile_image.url} alt={project.acf.mobile_image.alt}/></div>
                         </div>
